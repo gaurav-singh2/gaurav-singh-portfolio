@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaurav Singh — QA Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #08080e;
+  --bg2: #0f0f18;
+  --card: #111119;
+  --card2: #17171f;
+  --border: rgba(255,255,255,0.06);
+  --border2: rgba(255,255,255,0.11);
+  --text: #eeedf5;
+  --muted: #7e7d90;
+  --muted2: #a09fb5;
+  --accent: #7b68ee;
+  --accent2: #a594f9;
+  --teal: #1de9c6;
+  --amber: #f4a64a;
+  --red: #ff5e6d;
+  --blue: #5ba4f5;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15.5px;line-height:1.7;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 6%;background:rgba(8,8,14,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;color:var(--text);text-decoration:none;letter-spacing:-0.02em}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--accent);color:#fff;padding:0.52rem 1.2rem;border-radius:7px;font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:500;text-decoration:none;transition:background 0.2s,transform 0.15s;display:inline-flex;align-items:center;gap:6px}
+.nav-cta:hover{background:var(--accent2);transform:translateY(-1px)}
+
+.hero{min-height:100vh;display:flex;align-items:center;padding:8rem 6% 4rem;position:relative;overflow:hidden}
+.blob{position:absolute;border-radius:50%;pointer-events:none}
+.blob1{top:-5%;left:15%;width:700px;height:700px;background:radial-gradient(circle,rgba(123,104,238,0.1) 0%,transparent 65%)}
+.blob2{bottom:-10%;right:0;width:450px;height:450px;background:radial-gradient(circle,rgba(29,233,198,0.07) 0%,transparent 65%)}
+.hero-content{position:relative;z-index:1;max-width:800px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(123,104,238,0.1);border:1px solid rgba(123,104,238,0.22);color:var(--accent2);font-size:0.8rem;font-weight:500;padding:0.38rem 0.95rem;border-radius:50px;margin-bottom:1.8rem}
+.hero-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--teal);flex-shrink:0;animation:blink 2.2s infinite}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(1.4)}}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.6rem,5.5vw,4.6rem);font-weight:800;line-height:1.06;letter-spacing:-0.03em;margin-bottom:0.5rem}
+.hero h1 .role{background:linear-gradient(130deg,var(--accent2),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block}
+.hero-sub{font-size:1rem;color:var(--muted2);max-width:620px;margin:1.2rem 0 2.2rem;line-height:1.8;font-weight:300}
+.hero-actions{display:flex;gap:0.9rem;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:#fff;padding:0.82rem 1.9rem;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:0.92rem;font-weight:500;text-decoration:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:7px}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 28px rgba(123,104,238,0.3)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border2);padding:0.82rem 1.9rem;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:0.92rem;font-weight:500;text-decoration:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:7px}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent2);transform:translateY(-2px)}
+.hero-stats{margin-top:3.5rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;gap:3rem;flex-wrap:wrap}
+.stat-val{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--text);letter-spacing:-0.03em}
+.stat-val span{color:var(--accent)}
+.stat-lbl{font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px}
+
+section{padding:5.5rem 6%;position:relative}
+.s-tag{display:inline-block;font-size:0.72rem;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--accent);margin-bottom:0.7rem}
+.s-title{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;letter-spacing:-0.025em;line-height:1.15;margin-bottom:0.8rem}
+.s-sub{color:var(--muted);max-width:520px;font-size:0.95rem;margin-bottom:2.8rem}
+
+#about{background:var(--bg2)}
+.about-grid{display:grid;grid-template-columns:280px 1fr;gap:4.5rem;align-items:start}
+.about-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;position:sticky;top:5.5rem}
+.about-top{background:linear-gradient(135deg,rgba(123,104,238,0.15),rgba(29,233,198,0.08));padding:2rem;text-align:center;border-bottom:1px solid var(--border)}
+.avatar{width:90px;height:90px;border-radius:50%;margin:0 auto 1rem;background:linear-gradient(135deg,var(--accent),var(--teal));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:#fff}
+.a-name{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;color:var(--text)}
+.a-role{font-size:0.78rem;color:var(--accent2);background:rgba(123,104,238,0.1);border:1px solid rgba(123,104,238,0.2);display:inline-block;padding:0.25rem 0.8rem;border-radius:50px;margin-top:0.6rem}
+.about-body{padding:1.3rem}
+.c-row{display:flex;align-items:flex-start;gap:10px;padding:0.6rem 0;border-bottom:1px solid var(--border);font-size:0.82rem}
+.c-row:last-child{border-bottom:none}
+.c-row .lbl{color:var(--muted);min-width:56px;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;flex-shrink:0;padding-top:2px}
+.c-row a,.c-row span{color:var(--text);text-decoration:none;font-weight:500;word-break:break-all}
+.c-row a:hover{color:var(--accent2)}
+.about-right p{color:var(--muted2);font-size:0.95rem;line-height:1.85;margin-bottom:1.1rem}
+.about-right p strong{color:var(--text);font-weight:500}
+.edu-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;margin-bottom:0.8rem}
+.edu-deg{font-weight:500;color:var(--text);font-size:0.9rem}
+.edu-inst{font-size:0.82rem;color:var(--muted);margin-top:0.2rem}
+.edu-yr{font-size:0.75rem;color:var(--accent2);margin-top:0.2rem}
+
+#skills{background:var(--bg)}
+.sk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
+.sk-card{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:1.5rem;transition:border-color 0.3s,transform 0.3s;position:relative;overflow:hidden}
+.sk-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity 0.3s}
+.sk-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.sk-card:hover::after{opacity:1}
+.c1::after{background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.c2::after{background:linear-gradient(90deg,var(--teal),#0fd4b0)}
+.c3::after{background:linear-gradient(90deg,var(--amber),#ffc97a)}
+.c4::after{background:linear-gradient(90deg,var(--blue),#85c2ff)}
+.c5::after{background:linear-gradient(90deg,var(--red),#ff8a94)}
+.c6::after{background:linear-gradient(90deg,#4fd16b,#80e895)}
+.sk-head{font-family:'Syne',sans-serif;font-size:0.9rem;font-weight:700;color:var(--text);margin-bottom:1rem}
+.tags{display:flex;flex-wrap:wrap;gap:0.45rem}
+.tag{font-size:0.75rem;font-weight:500;background:rgba(255,255,255,0.04);border:1px solid var(--border2);color:var(--muted);padding:0.25rem 0.7rem;border-radius:50px;transition:all 0.2s}
+.sk-card:hover .tag{color:var(--muted2);border-color:rgba(255,255,255,0.14)}
+
+#experience{background:var(--bg2)}
+.exp-box{background:var(--card2);border:1px solid var(--border);border-radius:13px;padding:1.8rem 2rem;margin-bottom:2rem}
+.exp-role{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:0.3rem}
+.exp-co{font-size:0.95rem;color:var(--accent2);font-weight:500;margin-bottom:0.2rem}
+.exp-meta{font-size:0.8rem;color:var(--muted);margin-bottom:0.6rem}
+.exp-badge{display:inline-block;font-size:0.72rem;font-weight:500;background:rgba(29,233,198,0.1);border:1px solid rgba(29,233,198,0.2);color:var(--teal);padding:0.2rem 0.75rem;border-radius:50px;margin-bottom:1.2rem}
+.pts{list-style:none;display:grid;gap:0.55rem}
+.pts li{font-size:0.88rem;color:var(--muted);line-height:1.7;padding-left:1.3rem;position:relative}
+.pts li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:0.65rem;top:5px}
+
+#projects{background:var(--bg)}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:1.3rem}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:13px;overflow:hidden;transition:all 0.3s}
+.proj-card:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 18px 50px rgba(0,0,0,0.45)}
+.proj-stripe{height:4px}
+.proj-body{padding:1.5rem}
+.proj-co{font-size:0.7rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem}
+.proj-name{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--text);margin-bottom:0.2rem}
+.proj-period{font-size:0.75rem;color:var(--accent2);margin-bottom:0.9rem}
+.pill-row{display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:1rem}
+.pill{font-size:0.73rem;font-weight:500;padding:0.22rem 0.65rem;border-radius:50px}
+.pl{background:rgba(123,104,238,0.1);color:var(--accent2);border:1px solid rgba(123,104,238,0.18)}
+.pt{background:rgba(29,233,198,0.08);color:var(--teal);border:1px solid rgba(29,233,198,0.18)}
+.pa{background:rgba(244,166,74,0.09);color:var(--amber);border:1px solid rgba(244,166,74,0.18)}
+.pb{background:rgba(91,164,245,0.09);color:var(--blue);border:1px solid rgba(91,164,245,0.18)}
+.pr{background:rgba(255,94,109,0.09);color:var(--red);border:1px solid rgba(255,94,109,0.18)}
+
+#domains{background:var(--bg2)}
+.dom-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.1rem}
+.dom-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.4rem;transition:all 0.25s}
+.dom-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.dom-ico{font-size:1.5rem;margin-bottom:0.7rem}
+.dom-name{font-family:'Syne',sans-serif;font-size:0.9rem;font-weight:700;color:var(--text);margin-bottom:0.5rem}
+.dom-desc{font-size:0.8rem;color:var(--muted);line-height:1.65}
+
+#certs{background:var(--bg)}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+.cert-card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:1.2rem 1.4rem;display:flex;align-items:flex-start;gap:1rem;transition:all 0.2s}
+.cert-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.cert-ico{width:38px;height:38px;border-radius:9px;flex-shrink:0;background:rgba(123,104,238,0.12);display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.cert-name{font-size:0.87rem;font-weight:500;color:var(--text);margin-bottom:0.2rem}
+.cert-by{font-size:0.75rem;color:var(--muted)}
+
+#contact{background:var(--bg2);text-align:center}
+.contact-wrap{max-width:560px;margin:0 auto}
+.contact-glow{width:260px;height:260px;border-radius:50%;margin:0 auto 2.5rem;background:radial-gradient(circle,rgba(123,104,238,0.14) 0%,transparent 70%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.6rem}
+.contact-email{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--accent2);text-decoration:none;border-bottom:1px solid rgba(165,148,249,0.3);padding-bottom:2px;transition:border-color 0.2s}
+.contact-email:hover{border-color:var(--accent2)}
+.contact-phone{font-size:0.88rem;color:var(--muted)}
+.socials{display:flex;gap:0.9rem;justify-content:center;margin-top:2rem;flex-wrap:wrap}
+.soc-btn{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--border2);color:var(--muted);padding:0.55rem 1.2rem;border-radius:8px;text-decoration:none;font-size:0.85rem;font-weight:500;transition:all 0.2s}
+.soc-btn:hover{border-color:var(--accent);color:var(--accent2);transform:translateY(-1px)}
+
+footer{background:var(--bg);border-top:1px solid var(--border);text-align:center;padding:1.8rem 6%;font-size:0.8rem;color:var(--muted)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.55s ease,transform 0.55s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .about-grid{grid-template-columns:1fr}
+  .about-card{position:static}
+  .hero{padding:7rem 5% 4rem}
+  section{padding:4rem 5%}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">G<span>.</span>Singh</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="Gaurav_Singh_SDET_Resume_Mar_2026.pdf" download class="nav-cta">↓ Resume</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">~5 years of experience · Open to opportunities</div>
+    <h1>Gaurav Singh
+      <span class="role">QA Engineer</span>
+    </h1>
+    <p class="hero-sub">Manual &amp; Automation Testing · Web, SaaS, AI/ML &amp; IoT Platforms · Cypress · REST Assured · JMeter · Apache Kafka · Azure DevOps</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">View Projects →</a>
+      <a href="Gaurav_Singh_SDET_Resume_Mar_2026.pdf" download class="btn-outline">↓ Download Resume</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-val">~5<span>yrs</span></div>
+        <div class="stat-lbl">Experience</div>
+      </div>
+      <div>
+        <div class="stat-val">900<span>+</span></div>
+        <div class="stat-lbl">Test Cases Executed</div>
+      </div>
+      <div>
+        <div class="stat-val">4</div>
+        <div class="stat-lbl">Major Projects</div>
+      </div>
+      <div>
+        <div class="stat-val">AI<span>/</span>IoT</div>
+        <div class="stat-lbl">Core Domain</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="reveal">
+      <div class="about-card">
+        <div class="about-top">
+          <div class="avatar">GS</div>
+          <div class="a-name">Gaurav Singh</div>
+          <div class="a-role">QA Engineer</div>
+        </div>
+        <div class="about-body">
+          <div class="c-row"><span class="lbl">Email</span><a href="mailto:gauravsinghsms15@gmail.com">gauravsinghsms15@gmail.com</a></div>
+          <div class="c-row"><span class="lbl">Phone</span><span>+91 88968 81234</span></div>
+          <div class="c-row"><span class="lbl">LinkedIn</span><a href="https://www.linkedin.com/in/gaurav-singh-up" target="_blank">gaurav-singh-up</a></div>
+          <div class="c-row"><span class="lbl">Based</span><span>Noida, India</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="about-right reveal">
+      <div class="s-tag">About Me</div>
+      <h2 class="s-title">Quality, by design.</h2>
+      <p>I'm a <strong>Quality Assurance Engineer</strong> with around 5 years of experience in manual and automation testing for <strong>Web, SaaS, AI/ML, and IoT platforms</strong>.</p>
+      <p>My work spans UI automation with <strong>Cypress</strong>, API automation using <strong>REST Assured and Postman</strong>, backend validation, and performance testing with <strong>JMeter and Locust</strong>. I have hands-on exposure to <strong>Python scripting</strong>, LLM-based validation workflows, and API load testing — including high-volume image upload scenarios for Computer Vision APIs.</p>
+      <p>I'm proficient in <strong>Grafana</strong> for production monitoring, have experience with <strong>SAP BTP integration</strong> and API-based Master Data sync testing, and actively participate in <strong>Agile/Scrum</strong> delivery. My track record includes executing <strong>900+ test cases</strong>, improving regression coverage, and reducing production defect escape rates.</p>
+      <div style="margin-top:2rem">
+        <div class="s-tag">Education</div>
+        <div style="margin-top:0.7rem">
+          <div class="edu-item"><div class="edu-deg">Master of Computer Applications (MCA)</div><div class="edu-inst">Accurate Institute of Management & Technology (AKTU)</div><div class="edu-yr">2020</div></div>
+          <div class="edu-item"><div class="edu-deg">Bachelor of Computer Applications (BCA)</div><div class="edu-inst">School of Management Sciences (MGKVP)</div><div class="edu-yr">2018</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="s-tag">Technical Skills</div>
+  <h2 class="s-title">My Toolkit</h2>
+  <p class="s-sub">Tools and technologies I use to plan, build, and execute quality engineering workflows.</p>
+  <div class="sk-grid">
+    <div class="sk-card c1 reveal">
+      <div class="sk-head">UI Automation</div>
+      <div class="tags"><span class="tag">Cypress</span><span class="tag">Selenium</span></div>
+    </div>
+    <div class="sk-card c2 reveal">
+      <div class="sk-head">API Testing</div>
+      <div class="tags"><span class="tag">REST Assured</span><span class="tag">Postman</span><span class="tag">Schema Validation</span><span class="tag">Auth Testing</span><span class="tag">Integration Testing</span></div>
+    </div>
+    <div class="sk-card c3 reveal">
+      <div class="sk-head">Performance Testing</div>
+      <div class="tags"><span class="tag">JMeter</span><span class="tag">Locust</span><span class="tag">Bulk Image Load Testing</span></div>
+    </div>
+    <div class="sk-card c4 reveal">
+      <div class="sk-head">Manual Testing</div>
+      <div class="tags"><span class="tag">Functional</span><span class="tag">Regression</span><span class="tag">Integration</span><span class="tag">Exploratory</span><span class="tag">UAT</span><span class="tag">Mobile App Testing</span></div>
+    </div>
+    <div class="sk-card c5 reveal">
+      <div class="sk-head">Backend & Data</div>
+      <div class="tags"><span class="tag">SQL</span><span class="tag">Backend Validation</span><span class="tag">Apache Kafka</span><span class="tag">Event-driven Log Validation</span><span class="tag">Python Scripting</span><span class="tag">LLM Validation</span></div>
+    </div>
+    <div class="sk-card c6 reveal">
+      <div class="sk-head">DevOps & Monitoring</div>
+      <div class="tags"><span class="tag">Azure DevOps</span><span class="tag">Jenkins</span><span class="tag">CI/CD</span><span class="tag">Git</span><span class="tag">Grafana</span><span class="tag">Cloud Testing</span><span class="tag">Agile / Scrum</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="s-tag">Work Experience</div>
+  <h2 class="s-title">Where I've Worked</h2>
+  <p class="s-sub">My professional journey in QA engineering.</p>
+  <div class="exp-box reveal">
+    <div class="exp-role">Quality Assurance Engineer</div>
+    <div class="exp-co">Spraxa Solutions Pvt. Ltd.</div>
+    <div class="exp-meta">Noida, India · Mar 2021 – Present</div>
+    <div class="exp-badge">Currently Here</div>
+    <ul class="pts">
+      <li>Led manual and automation QA initiatives for AI and IoT-based SaaS platforms, ensuring functional stability and system performance.</li>
+      <li>Designed and executed functional, regression, integration, and exploratory test cases across web and cloud applications.</li>
+      <li>Developed and maintained a UI automation framework using Cypress for business workflows and Playbook.</li>
+      <li>Built API automation suites using REST Assured covering request/response validation, authentication, schema validation, and integration scenarios.</li>
+      <li>Performed API performance testing using JMeter to evaluate system behavior during bulk image uploads (500+ images scenario).</li>
+      <li>Benchmarked Computer Vision API performance under high-volume workloads and supported optimization with development teams.</li>
+      <li>Integrated automated test suites with Jenkins and Azure DevOps CI/CD pipelines.</li>
+      <li>Performed database validation using SQL queries to verify backend data integrity.</li>
+      <li>Tested SAP BTP integrations, particularly around API-based Master Data and Order Summary sync between systems.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="s-tag">Key Projects</div>
+  <h2 class="s-title">What I've Worked On</h2>
+  <p class="s-sub">Real engagements across IoT, healthcare imaging, logistics, and video surveillance.</p>
+  <div class="proj-grid">
+
+    <div class="proj-card reveal">
+      <div class="proj-stripe" style="background:linear-gradient(90deg,var(--accent),var(--teal))"></div>
+      <div class="proj-body">
+        <div class="proj-co">Spraxa Solutions</div>
+        <div class="proj-name">CoolR – IoT Monitoring Platform</div>
+        <div class="proj-period">Oct 2022 – Present</div>
+        <ul class="pts">
+          <li>Executed manual and automated testing for real-time IoT dashboards and AI-based telemetry systems.</li>
+          <li>Implemented Cypress-based UI automation for user workflows and ordering modules.</li>
+          <li>Developed REST API automation and performed integration validation across microservices.</li>
+          <li>Conducted JMeter-based load testing to assess API stability during bulk image processing.</li>
+          <li>Performed event-driven validation — analyzed Kafka-triggered backend logs to ensure correct event sequencing, payload structure, and telemetry consistency.</li>
+        </ul>
+        <div class="pill-row"><span class="pill pl">Cypress</span><span class="pill pt">REST Assured</span><span class="pill pa">JMeter</span><span class="pill pb">Kafka</span><span class="pill pr">IoT / AI</span></div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-stripe" style="background:linear-gradient(90deg,var(--blue),#4fd16b)"></div>
+      <div class="proj-body">
+        <div class="proj-co">Baxter – Hillrom</div>
+        <div class="proj-name">Helion Viewer Suite</div>
+        <div class="proj-period">Apr 2022 – Sep 2022</div>
+        <ul class="pts">
+          <li>Performed manual functional, UI, and integration testing across Windows, macOS, and Linux environments.</li>
+          <li>Validated healthcare imaging workflows ensuring compliance and high availability on Web and Mobile.</li>
+        </ul>
+        <div class="pill-row"><span class="pill pb">Manual Testing</span><span class="pill pt">Cross-platform</span><span class="pill pl">Healthcare Imaging</span><span class="pill pa">Mobile QA</span></div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-stripe" style="background:linear-gradient(90deg,var(--amber),var(--red))"></div>
+      <div class="proj-body">
+        <div class="proj-co">TLS Mobile</div>
+        <div class="proj-name">Logistics Platform</div>
+        <div class="proj-period">Apr 2022 – May 2022</div>
+        <ul class="pts">
+          <li>Performed logic and rule validation to verify correctness of system-generated outputs against defined requirements.</li>
+          <li>Compared UI results with backend API responses and database records to identify mismatches.</li>
+          <li>Investigated false positives, false negatives, and calculation discrepancies in rule-driven workflows.</li>
+          <li>Prepared internal validation notes and evidence documents to support defect resolution.</li>
+        </ul>
+        <div class="pill-row"><span class="pill pa">Rule Validation</span><span class="pill pb">API Comparison</span><span class="pill pt">SQL</span><span class="pill pr">Logistics</span></div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-stripe" style="background:linear-gradient(90deg,var(--teal),var(--blue))"></div>
+      <div class="proj-body">
+        <div class="proj-co">Spraxa Solutions</div>
+        <div class="proj-name">RealWave – Intelligent Video Surveillance</div>
+        <div class="proj-period">Mar 2021 – Mar 2022</div>
+        <ul class="pts">
+          <li>Executed UAT, functional, and integration testing ensuring seamless data flow between video analytics and POS systems.</li>
+          <li>Developed backend automation workflows using Selenium to validate server-side processes.</li>
+          <li>Performed API validation and database verification using SQL queries.</li>
+          <li>Collaborated with developers to troubleshoot AI detection and live streaming issues.</li>
+        </ul>
+        <div class="pill-row"><span class="pill pt">UAT</span><span class="pill pl">Selenium</span><span class="pill pb">API Validation</span><span class="pill pa">SQL</span><span class="pill pr">AI / Video Analytics</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DOMAINS -->
+<section id="domains">
+  <div class="s-tag">Domain Experience</div>
+  <h2 class="s-title">Industries I've Tested In</h2>
+  <p class="s-sub">Real-world experience across diverse verticals from my project history.</p>
+  <div class="dom-grid">
+    <div class="dom-card reveal"><div class="dom-ico">🌡️</div><div class="dom-name">IoT & Telemetry</div><div class="dom-desc">Real-time IoT dashboards, AI-based telemetry, Kafka event validation, and device command sequencing on the CoolR platform.</div></div>
+    <div class="dom-card reveal"><div class="dom-ico">🤖</div><div class="dom-name">AI / Computer Vision</div><div class="dom-desc">Performance benchmarking of Computer Vision APIs under bulk image upload loads. LLM-based validation workflows and AI detection testing.</div></div>
+    <div class="dom-card reveal"><div class="dom-ico">🏥</div><div class="dom-name">Healthcare Imaging</div><div class="dom-desc">Validated Baxter Hillrom's Helion Viewer Suite ensuring compliance and correct imaging workflows across Web and Mobile.</div></div>
+    <div class="dom-card reveal"><div class="dom-ico">📦</div><div class="dom-name">Logistics</div><div class="dom-desc">Logic and rule-driven validation for a logistics platform, investigating discrepancies between UI, API, and database outputs.</div></div>
+    <div class="dom-card reveal"><div class="dom-ico">📹</div><div class="dom-name">Video Surveillance</div><div class="dom-desc">Integration testing between video analytics and POS systems, live streaming validation, and AI detection QA on RealWave.</div></div>
+    <div class="dom-card reveal"><div class="dom-ico">☁️</div><div class="dom-name">SaaS & Cloud</div><div class="dom-desc">SAP BTP integration testing, CI/CD pipeline integration, and cloud-based regression coverage across SaaS platforms.</div></div>
+  </div>
+</section>
+
+<!-- CERTS -->
+<section id="certs">
+  <div class="s-tag">Certifications</div>
+  <h2 class="s-title">Credentials</h2>
+  <p class="s-sub">Certifications from my resume, spanning cloud, security, AI, and agile practices.</p>
+  <div class="cert-grid">
+    <div class="cert-card reveal"><div class="cert-ico">☁️</div><div><div class="cert-name">AWS: DevOps</div><div class="cert-by">Amazon Web Services</div></div></div>
+    <div class="cert-card reveal"><div class="cert-ico">🧠</div><div><div class="cert-name">AWS: Machine Learning (Comprehend)</div><div class="cert-by">Amazon Web Services</div></div></div>
+    <div class="cert-card reveal"><div class="cert-ico">🔒</div><div><div class="cert-name">AWS: S3 Security</div><div class="cert-by">Amazon Web Services</div></div></div>
+    <div class="cert-card reveal"><div class="cert-ico">🛡️</div><div><div class="cert-name">Cyber Security</div><div class="cert-by">NIELIT CCC</div></div></div>
+    <div class="cert-card reveal"><div class="cert-ico">🤖</div><div><div class="cert-name">Generative AI Testing & Prompt Engineering</div><div class="cert-by">Professional Certification</div></div></div>
+    <div class="cert-card reveal"><div class="cert-ico">🔄</div><div><div class="cert-name">Scrum & Agile QA Practices</div><div class="cert-by">Professional Certification</div></div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="s-tag">Get in Touch</div>
+    <h2 class="s-title">Let's Connect</h2>
+    <p class="s-sub" style="margin:0 auto 2rem">Open to new opportunities, collaborations, or just a conversation about quality engineering.</p>
+    <div class="contact-glow">
+      <div style="font-size:2rem">📬</div>
+      <a href="mailto:gauravsinghsms15@gmail.com" class="contact-email">gauravsinghsms15@gmail.com</a>
+      <div class="contact-phone">+91 88968 81234</div>
+    </div>
+    <a href="Gaurav_Singh_SDET_Resume_Mar_2026.pdf" download class="btn-primary" style="margin:0 auto 2rem;display:inline-flex">↓ Download Resume</a>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/gaurav-singh-up" class="soc-btn" target="_blank">🔗 LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Gaurav Singh · QA Engineer · Noida, India</p>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => {
+    if(e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 70);
+  });
+}, {threshold: 0.08});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
